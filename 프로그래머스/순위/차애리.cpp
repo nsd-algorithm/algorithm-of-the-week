@@ -6,18 +6,18 @@ using namespace std;
 int solution(int n, vector<vector<int>> results) {
     int answer = 0;
     vector<vector <bool>> updateResults(n+1,vector<bool>(n+1,false));
-    // n x n ¹è¿­À» ¸¸µë, ÃÊ±â°ªÀº false
+    // n x n ë°°ì—´ì„ ë§Œë“¬, ì´ˆê¸°ê°’ì€ false
 
 	for (int i = 0; i <results.size(); i++){
 		int winPeople = results[i][0];
 		int losePeople = results[i][1];
 		updateResults[winPeople][losePeople] = true;
-        // °á°ú°¡ ¸íÈ®ÇÑ °æ¿ì¿¡¸¸ true·Î ¹Ù²Ş
+        // ê²°ê³¼ê°€ ëª…í™•í•œ ê²½ìš°ì—ë§Œ trueë¡œ ë°”ê¿ˆ
 	}
-	//ÇÃ·ÎÀÌµå ¿Í¼£ ¾Ë°í¸®Áò
-    //a->bÀÌ°í b->c, a->c°¡ µÊ
-    //°Å²Ù·Î b->a°¡ µÇ´Â °æ¿ì Áß¿¡ a->c°¡ µÇ´Â °æ¿ì¸¦ Ã£À½
-    //À§ÀÇ °æ¿ì¿¡¸¸ true·Î ¹Ù²Ş
+	//í”Œë¡œì´ë“œ ì™€ìƒ¬ ì•Œê³ ë¦¬ì¦˜
+    //a->bì´ê³  b->c, a->cê°€ ë¨
+    //ê±°ê¾¸ë¡œ b->aê°€ ë˜ëŠ” ê²½ìš° ì¤‘ì— a->cê°€ ë˜ëŠ” ê²½ìš°ë¥¼ ì°¾ìŒ
+    //ìœ„ì˜ ê²½ìš°ì—ë§Œ trueë¡œ ë°”ê¿ˆ
 	for (int second = 1; second <= n; second ++){
 		for (int first = 1; first <= n; first ++){
 			for (int third = 1; third <= n; third ++){
@@ -27,21 +27,23 @@ int solution(int n, vector<vector<int>> results) {
 			}
 		}
 	}
-	//¾÷µ¥ÀÌÆ®µÈ °á°ú¸¦ ÅëÇØ ´Ù½Ã È®ÀÎ ÇÔ
+
+    
+	//ì—…ë°ì´íŠ¸ëœ ê²°ê³¼ë¥¼ í†µí•´ ë‹¤ì‹œ í™•ì¸ í•¨
 	for (int i = 1; i<= n; i++){
 		int tmp = 0;
 		for (int j = 1; j <=n ; j++){
 			if(i == j){
 				continue;
-				// º»ÀÎ°ú °æ±âÇÏ´Â °æ¿ì´Â ¾øÀ½  
+				// ë³¸ì¸ê³¼ ê²½ê¸°í•˜ëŠ” ê²½ìš°ëŠ” ì—†ìŒ  
 			}
 			if(updateResults[i][j] || updateResults[j][i]){
 				tmp ++;
-                //i¹øÂ° »ç¶÷°ú j¹øÂ° »ç¶÷ÀÇ ´ë°á °á°ú°¡ ¸íÈ®ÇÏ¸é Ä«¿îÆ®
+                //ië²ˆì§¸ ì‚¬ëŒê³¼ jë²ˆì§¸ ì‚¬ëŒì˜ ëŒ€ê²° ê²°ê³¼ê°€ ëª…í™•í•˜ë©´ ì¹´ìš´íŠ¸
 			}
 		}
 		if(tmp ==n-1){
-				//ÀÚ±â ÀÚ½Å »©°í ¸ğµç »ç¶÷°ú ´ë°áÇÑ °æ¿ì(½ÂÆĞ¸¦ È®½ÇÈ÷ ¾Ë °æ¿ì)
+				//ìê¸° ìì‹  ë¹¼ê³  ëª¨ë“  ì‚¬ëŒê³¼ ëŒ€ê²°í•œ ê²½ìš°(ìŠ¹íŒ¨ë¥¼ í™•ì‹¤íˆ ì•Œ ê²½ìš°)
 				answer ++;
 			}
 	}
