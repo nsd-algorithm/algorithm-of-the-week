@@ -5,6 +5,7 @@
 using namespace std;
 
 
+
 //전체 카페트는 적어도 길이가 3이상이어야 한다
 //brown + yellow 는 전체 카페트 넓이이다
 // h(세로)가 3이상부터 탐색을 하자
