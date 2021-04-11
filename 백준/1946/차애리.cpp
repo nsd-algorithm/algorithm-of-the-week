@@ -20,6 +20,22 @@ int solution(int len, vector <pair<int,int>> people){
     }
     return cnt;
 }
+/*
+1 4     1
+2 3     2
+3 2     3
+4 1     4
+5 5
+*/
+
+
+1 4     1 
+2 5     x
+3 6     x
+4 2     2
+5 7     x
+6 1     3
+7 3     x
 
 int main(){
     ios::sync_with_stdio(0);
