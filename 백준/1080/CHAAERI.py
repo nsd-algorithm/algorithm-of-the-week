@@ -2,6 +2,7 @@ def solution(routes):
     answer = 1
     routes.sort()
     end = routes[0][1] # 카메라 끝
+    print(routes)
     for i in range(len(routes)):
         if routes[i][0] > end: # 현재 차의 시작 부분이 end 범위(카메라 설치의)보다 크면 카메라 설치 해야함
             answer += 1
@@ -10,3 +11,6 @@ def solution(routes):
             end = routes[i][1]
     return answer
 
+aaa = [[-20,15], [18,23], [-14,-5], [-5,-3], [-4, 6]]
+
+print(solution(aaa))
