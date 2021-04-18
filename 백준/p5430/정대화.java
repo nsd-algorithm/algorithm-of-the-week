@@ -1,4 +1,4 @@
-package boj.boj5430;
+package 백준.p5430;
 
 import java.io.BufferedReader;
 import java.io.IOException;
