@@ -34,7 +34,7 @@ def solution(k, m, A):
     answer = answer_tmp
     return answer
 
-
+# commit
 
 k, m, A = 52, 1, [0, 0, 0, 0, 0, 0, 0, 0, 0]
 print(solution(k, m, A))
