@@ -1,4 +1,4 @@
-# 
+# abc
 
 def check_binary(k, A, answer_tmp):
     sum_tmp = 0
