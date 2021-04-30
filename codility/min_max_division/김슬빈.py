@@ -13,8 +13,7 @@ def check_binary(k, A, answer_tmp):
     else: more_flag = -1
 
     return more_flag
-
-
+# ㅎtesttest
 def solution(k, m, A):
     answer_min, answer_max = 1, len(A)*max(A)
 
