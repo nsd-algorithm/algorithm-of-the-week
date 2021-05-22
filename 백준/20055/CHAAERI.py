@@ -48,6 +48,13 @@ def rotate(belt,robot):
 
   return belt, robot
 
+1 2 3 4 5 6
+
+0 0 1
+6 1 2 
+5 4 3
+
+
 def move_robot(belt, robot):
   robot[-1] = 0
   for i in range(len(robot)-2, -1, -1):
@@ -77,55 +84,27 @@ def robot_print(robot):
 
 n, k = map(int, input().split())
 my_belt = list(map(int, input().split()))
-#belt_print(my_belt)
+
 
 count = 0
 result = 0
 robot_map = [0 for i in range(n)]
-# bbb = [1,2,1,3,1,2,1,5,1,2]
-# aaa = [1,0,1,0,1]
-# [0, 1, 0, 1, 0]
-# belt_print(bbb)
-# bbb, aaa = move_robot(bbb, aaa)
-# # print(aaa)
-# belt_print(bbb)
-while(1):
-  # print("before")
-  # robot_print(robot_map)
-  # belt_print(my_belt)
-  my_belt,robot_map = rotate(my_belt,robot_map)
-  # print()
-  # print("ing")
-  # robot_print(robot_map)
-  # belt_print(my_belt)
-  my_belt, robot_map = move_robot(my_belt, robot_map)
-  # print()
-  # print("after")
-  # robot_print(robot_map)
-  # belt_print(my_belt)
 
-  # print()
-  # print()
-  
+while(1):
+
+  my_belt,robot_map = rotate(my_belt,robot_map)
+  my_belt, robot_map = move_robot(my_belt, robot_map)
+
   if robot_map[0] == 0 :
     if my_belt[0] > 0 :
       robot_map[0] = 1
       my_belt[0] -= 1
-      # print("insert")
-  
+
   robot_map[-1] = 0
-  #print("----robot----")
-  #robot_print(robot_map)
-  #print()
-  #print("----belt----")
-  #belt_print(my_belt)
+
   count = my_belt.count(0)
   result += 1
   if count >= k:
     break
-  #print()
-  #print()
 
 print(result)
-#print("aaaa",robot_map)
-#print("abbb",my_belt)
