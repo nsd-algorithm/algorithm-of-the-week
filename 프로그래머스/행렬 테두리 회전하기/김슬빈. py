@@ -1,0 +1,73 @@
+import copy
+
+def solution(rows, columns, queries):
+    matrix = []
+    for r in range(rows):
+        matrix.append(list(range(r * columns + 1, (r + 1) * columns + 1)))
+
+    answer = []
+
+
+
+    for query in queries:
+        rotation_flag = 0  # 0: 오른쪽, 1: 아래, 2: 왼쪽, 3: 위쪽 4: 종료
+        # matrix_ori = copy.deepcopy(matrix)
+
+        y1, x1, y2, x2 = query[0] - 1, query[1] - 1, query[2] - 1, query[3] - 1
+        x, y = x1, y1
+
+        ans = 99999
+        num_next = matrix[y][x]
+        while rotation_flag < 4:
+            if rotation_flag == 0:
+                if ans > num_next: ans = num_next
+
+                if x < x2:
+                    num_next, matrix[y][x + 1] = matrix[y][x + 1], num_next
+
+                    x += 1
+                else:
+                    # num_next = matrix[y][x]
+                    rotation_flag = 1
+                    # y1 += 1
+
+            elif rotation_flag == 1:
+
+                if ans > num_next: ans = num_next
+
+                if y < y2:
+                    num_next, matrix[y + 1][x] = matrix[y + 1][x], num_next
+
+                    y += 1
+                else:
+                    # num_next = matrix[y][x]
+                    rotation_flag = 2
+                    # x1 -= 1
+
+            elif rotation_flag == 2:
+                if ans > num_next: ans = num_next
+
+                if x > x1:
+                    num_next, matrix[y][x - 1] = matrix[y][x - 1], num_next
+                    x -= 1
+                else:
+                    # num_next = matrix[y - 1][x1]
+                    rotation_flag = 3
+
+            elif rotation_flag == 3:
+                if ans > num_next: ans = num_next
+
+                if y > y1:
+                    num_next, matrix[y - 1][x] = matrix[y - 1][x], num_next
+                    y -= 1
+                else:
+                    rotation_flag = 4
+
+        answer.append(ans)
+        # 
+        # print(query)
+        # for m in matrix: print(m)
+        # print()
+        # print()
+
+    return answer
