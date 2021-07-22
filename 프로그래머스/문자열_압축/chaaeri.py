@@ -17,7 +17,6 @@ def solution(s):
                 # 반복된 횟수 + 반복된 글자를 기존 result 글자에 추가
                 else:
                     result = result + str(count) + tmp
-
                 # tmp는 비교했던 다음 글자들로 대체
                 tmp = s[j:j+i]
                 # count 초기화
