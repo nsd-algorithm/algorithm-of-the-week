@@ -10,7 +10,6 @@ def solution(s):
             # 만약 i단위 별 잘랐을 때 같은 글자들이면
             if(tmp == s[j:j+i]):
                 count += 1
-
             else:
                 # 만약 다르고 count가 1이면 글자 그대로 result에 추가
                 if(count == 1):
